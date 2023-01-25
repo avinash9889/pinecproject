@@ -1,19 +1,29 @@
+#include<conio.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include<stdlib.h>
+
 int main()
 {
-    char ch;
-    char str[50]="string";
-    FILE *fp;
-    if(fp==NULL)
-    {
-        printf("NO file");
-        exit(1);    
-    }
-    fp=fopen("main.txt","r");
-    ch=fgetc(fp);
-    printf("%c",ch);
-    fclose(fp);
-    return 0;
+	FILE* ptr;
+	char str[50];
+    char str1[50]="string";
+	ptr = fopen("main.txt", "a+");
+
+	if (NULL == ptr) {
+		printf("file can't be opened \n");
+	}
+
+	while (fgets(str, 50, ptr) != NULL) {
+		printf("%s", str);
+        strcmp(str,str1);
+        if(strcmp(str,str1)==1)
+        printf("%s\n",str1);
+        else
+        printf("NULL");
+	}
+
+	fclose(ptr);
+	return 0;
 }
+
